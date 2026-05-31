@@ -1,0 +1,112 @@
+DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My AI</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+margin:0;
+}
+
+.header{
+background:#10a37f;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+.chat{
+height:75vh;
+overflow:auto;
+padding:10px;
+}
+
+.msg{
+background:white;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+}
+
+.bottom{
+display:flex;
+padding:10px;
+background:white;
+}
+
+input{
+flex:1;
+padding:10px;
+}
+
+button{
+padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h2>My AI Assistant</h2>
+</div>
+
+<div class="chat" id="chat"></div>
+
+<div class="bottom">
+<input id="text" placeholder="Message">
+<button onclick="send()">Send</button>
+</div>
+
+<script>
+function send(){
+let text=document.getElementById("text").value;
+
+document.getElementById("chat").innerHTML +=
+`<div class="msg"><b>You:</b> ${text}</div>`;
+
+document.getElementById("chat").innerHTML +=
+`<div class="msg"><b>AI:</b> Hello! Main aapka AI Assistant hu.</div>`;
+
+document.getElementById("text").value="";
+}
+</script><script>
+function send(){
+
+let input=document.getElementById("text");
+let text=input.value;
+
+if(text=="") return;
+
+let chat=document.getElementById("chat");
+
+chat.innerHTML +=
+`<div class="msg"><b>You:</b> ${text}</div>`;
+
+let reply="Mujhe samajh nahi aaya.";
+
+if(text.toLowerCase().includes("hello")){
+reply="Hello! Aap kaise ho?";
+}
+
+else if(text.toLowerCase().includes("name")){
+reply="Mera naam My AI hai.";
+}
+
+else if(text.toLowerCase().includes("india")){
+reply="India ki rajdhani New Delhi hai.";
+}
+
+chat.innerHTML +=
+`<div class="msg"><b>AI:</b> ${reply}</div>`;
+
+input.value="";
+}
+</script>
+
+</body>
+</html>
